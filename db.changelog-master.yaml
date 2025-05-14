@@ -1,0 +1,4 @@
+databaseChangeLog:
+  - include:
+      file: "migrations/db.changelog-relative.yaml"
+      relativeToChangeLogFile: true

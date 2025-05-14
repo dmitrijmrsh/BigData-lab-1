@@ -1,0 +1,39 @@
+services:
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    environment:
+      POSTGRES_USER: dmitrymrsh
+      POSTGRES_PASSWORD: dmitrymrsh
+      POSTGRES_DB: lab_1
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./source:/source
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dmitrymrsh -d lab_1"]
+      interval: 5s
+      retries: 5
+
+  liquibase:
+    image: liquibase:latest
+    container_name: liquibase_migrations
+    depends_on:
+      postgres:
+        condition: service_healthy
+    volumes:
+      - ./db.changelog-master.yaml:/liquibase/db.changelog-master.yaml
+      - ./migrations:/liquibase/migrations
+    command:
+      [
+        "update",
+        "--changelog-file=db.changelog-master.yaml",
+        "--url=jdbc:postgresql://postgres:5432/lab_1",
+        "--username=dmitrymrsh",
+        "--password=dmitrymrsh"
+      ]
+
+volumes:
+  postgres_data:

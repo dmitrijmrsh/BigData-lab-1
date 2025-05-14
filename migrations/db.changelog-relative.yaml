@@ -1,0 +1,97 @@
+databaseChangeLog:
+  - changeSet:
+      id: 001_init
+      author: dmitrymrsh
+      comment: "Init input data table and fill it"
+      changes:
+        - sqlFile:
+            path: 001_init.sql
+            relativeToChangeLogFile: true
+  - changeSet:
+      id: 002_snowflake
+      author: dmitrymrsh
+      comment: "Snowflake DDL scripts"
+      changes:
+        - sqlFile:
+            path: 002_snowflake.sql
+            relativeToChangeLogFile: true
+  - changeSet:
+      id: 003_date
+      author: dmitrymrsh
+      comment: "Fill year, month, day and date tables"
+      changes:
+        - sqlFile:
+            path: 003_date.sql
+            relativeToChangeLogFile: true
+  - changeSet:
+      id: 004_pet
+      author: dmitrymrsh
+      comment: "Fill pet_type, pet_breed and pet tables"
+      changes:
+        - sqlFile:
+            path: 004_pet.sql
+            relativeToChangeLogFile: true
+  - changeSet:
+      id: 005_country
+      author: dmitrymrsh
+      comment: "Fill country table"
+      changes:
+        - sqlFile:
+            path: 005_country.sql
+            relativeToChangeLogFile: true
+  - changeSet:
+      id: 006_city
+      author: dmitrymrsh
+      comment: "Fill city table"
+      changes:
+        - sqlFile:
+            path: 006_city.sql
+            relativeToChangeLogFile: true
+  - changeSet:
+      id: 007_customer
+      author: dmitrymrsh
+      comment: "Fill postal_code and customer table"
+      changes:
+        - sqlFile:
+            path: 007_customer.sql
+            relativeToChangeLogFile: true
+  - changeSet:
+      id: 008_seller
+      author: dmitrymrsh
+      comment: "Fill seller table"
+      changes:
+        - sqlFile:
+            path: 008_seller.sql
+            relativeToChangeLogFile: true
+  - changeSet:
+      id: 009_supplier
+      author: dmitrymrsh
+      comment: "Fill supplier tab"
+      changes:
+        - sqlFile:
+            path: 009_supplier.sql
+            relativeToChangeLogFile: true
+  - changeSet:
+      id: 010_product
+      author: dmitrymrsh
+      comment: "Fill tables associated with products"
+      changes:
+        - sqlFile:
+            path: 010_product.sql
+            relativeToChangeLogFile: true
+  - changeSet:
+      id: 011_store
+      author: dmitrymrsh
+      comment: "Fill tables associated with store"
+      changes:
+        - sqlFile:
+            path: 011_store.sql
+            relativeToChangeLogFile: true
+  - changeSet:
+      id: 012_sale
+      author: dmitrymrsh
+      comment: "Fill tables associated with sale"
+      changes:
+        - sqlFile:
+            path: 012_sale.sql
+            relativeToChangeLogFile: true
